@@ -2,7 +2,7 @@ var through = require('through2');
 
 function minify(file) {
   var contents = String(file.contents)
-  contents = contents.replace(/\s+/g, ' ').replace(/\s*([:;{}()[]])\s*/g, '$1')
+  contents = contents.replace(/\s+/g, ' ').replace(/\s*([:;,=-{}\(\)\[\]+])\s*/g, '$1')
   file.contents = Buffer.from(contents);
   return file;
 }
